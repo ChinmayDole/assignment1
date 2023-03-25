@@ -1,0 +1,35 @@
+.html, body{
+	width: 100%;
+	height: 100%;
+}
+
+#center-data{
+	display: flex;
+	flex-direction: column;
+}
+
+.content-center{
+	align-self: center;
+	justify-items: center;
+}
+.error-string{
+	font-weight: 100;
+	font-size: large;
+	color: red;
+	font-style: italic;
+}
+
+.button-submit{
+	padding: 30;
+	width: 4em;
+	height: 2rem;
+	background-color: #226622;
+	color: white;
+	border-radius: 0.2em;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

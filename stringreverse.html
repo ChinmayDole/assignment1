@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</link>
+</head>
+<body>
+	<div class="container" id="center-data">
+		<p id="errorString" class="error-string"></p>
+		<br>
+		<label for="textString">Please enter a valid string</label>
+		<input type="text" onclick="clearText()" id="textString" class="form-control">
+		<br>
+		<button class="button-submit" onclick="replaceStringData()">Submit</button>
+		<p id="resultString"></p>
+	</div>
+	<script>
+		function replaceStringData(){
+			document.getElementById("resultString").value = "";
+			
+			let textString = document.getElementById("textString").value;
+			if( textString == ""){
+				document.getElementById("errorString").innerHTML = "Please enter valid string";
+				return false;
+			}
+			let arr = textString.split("");
+			let arrRev = arr.reverse();
+			document.getElementById("resultString").innerHTML = arrRev.join("");
+			
+		}
+
+		function clearText(){
+			document.getElementById("resultString").value = "";
+			document.getElementById("errorString").value = ""; 
+		}
+
+	
+	</script>
+</body>
+</html>

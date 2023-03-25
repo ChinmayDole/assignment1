@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</link>
+</head>
+<body>
+	<div class="container" id="center-data">
+		<p id="errorString" class="error-string"></p>
+		<br>
+		<label for="textString">Please enter a valid string</label>
+		<input type="text" onclick="clearText()" id="textString" class="form-control">
+		<br>
+		<br>
+		<button class="button-submit" onclick="replaceStringData()">Submit</button>
+		<p id="resultString"></p>
+	</div>
+	<script>
+		function replaceStringData(){
+			document.getElementById("resultString").value = "";
+			var exp = new RegExp(/[aeiou]/,'gi');
+			let textString = document.getElementById("textString").value;
+			if( textString == "" || checkNumberOrSpecialCharacters(textString)){
+				document.getElementById("errorString").innerHTML = "Please enter valid string";
+				return false;
+			}
+			document.getElementById("resultString").innerHTML = textString.replaceAll(exp,''); 
+		}
+
+		function clearText(){
+			document.getElementById("resultString").value = "";
+			document.getElementById("errorString").value = ""; 
+		}
+
+		function checkNumberOrSpecialCharacters(stringValue){
+			if( /[^a-zA-Z\-\/]/.test(stringValue) ) {
+				return true;
+			}  
+		}
+	</script>
+</body>
+</html>
